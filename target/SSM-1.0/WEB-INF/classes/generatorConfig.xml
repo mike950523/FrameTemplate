@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration  
+PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
+"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">  
+   
+<generatorConfiguration>  
+<!-- 配置文件路径 -->  
+<!-- <properties resource="jdbc.properties"/>   -->
+<!--数据库驱动包路径 -->  
+<classPathEntry location="G:\.m2\repository\mysql\mysql-connector-java\5.1.37\mysql-connector-java-5.1.37.jar"/>  
+   
+<context id="MySQLTables" targetRuntime="MyBatis3">  
+<!--关闭注释 -->  
+ <commentGenerator>  
+<property name="suppressDate" value="true"/>  
+</commentGenerator>  
+   
+<!--数据库连接信息 -->  
+<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/test" userId="root" password="asdf1@34">    
+</jdbcConnection>    
+   
+<!-- 生成模型的包名和位置-->    
+<javaModelGenerator targetPackage="com.cn.SSM.pojo" targetProject="src/main/java">    
+    <property name="enableSubPackages" value="true"/>    
+    <property name="trimStrings" value="true"/>    
+</javaModelGenerator>    
+<!-- 生成映射文件的包名和位置-->    
+<sqlMapGenerator targetPackage="com.cn.SSM.mapping" targetProject="src/main/java">    
+    <property name="enableSubPackages" value="true"/>    
+</sqlMapGenerator>    
+<!-- 生成DAO的包名和位置-->    
+<javaClientGenerator type="XMLMAPPER" targetPackage="com.cn.SSM.IDao" targetProject="src/main/java">    
+    <property name="enableSubPackages" value="true"/>    
+</javaClientGenerator>   
+   
+<!--对应数据库表名 -->  
+<table tableName="user">  
+       <generatedKey column="id" sqlStatement="MySql" identity="true" />
+</table>  
+</context>  
+</generatorConfiguration>  
